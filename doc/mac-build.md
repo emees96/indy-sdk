@@ -10,6 +10,7 @@
    brew install autoconf
    brew install cmake
    brew install openssl
+   brew install zeromq
    ```
    
 
@@ -30,3 +31,8 @@
    cd ./indy-sdk/libindy
    cargo build
    ```
+
+# Note on running local nodes
+
+In order to run local nodes on MacOS, it may be necessary to set up port mapping between the Docker container
+and local host. Follow the instructions in [Indy SDK README](https://github.com/hyperledger/indy-sdk#how-to-start-local-nodes-pool-with-docker)
