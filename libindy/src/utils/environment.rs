@@ -16,11 +16,29 @@ impl EnvironmentUtils {
         path.push(indy_client_dir);
 
         if cfg!(target_os = "android"){
-            let android_dir = env::var("EXTERNAL_STORAGE").unwrap() + "/.indy_client";
-            fs::create_dir_all(&android_dir).unwrap();
-            path = PathBuf::from(android_dir);
+            EnvironmentUtils::android_create_indy_client_dir();
+            path = EnvironmentUtils::android_indy_client_dir_path();
         }
         path
+    }
+
+    pub fn android_indy_client_dir_path() -> PathBuf{
+        let external_storage= env::var("EXTERNAL_STORAGE");
+        let android_dir :String;
+        match external_storage {
+            Ok (val) => android_dir = val + "/.indy_client",
+            Err(err) => {
+                error!("Unable to find EXTERNAL_STORAGE android environment variable which holds the location to external storage file path");
+                panic!("Failed to find external storage path {:?}", err)
+            }
+        }
+
+        PathBuf::from(android_dir)
+    }
+
+    pub fn android_create_indy_client_dir(){
+        //Creates directory only if it is not present.
+        fs::create_dir_all(EnvironmentUtils::android_indy_client_dir_path().as_path()).unwrap();
     }
 
     pub fn wallet_home_path() -> PathBuf {
