@@ -7,7 +7,7 @@ library; there are also convenience wrappers for various programming languages a
 
 All bugs, stories, and backlog for this project are managed through [Hyperledger's Jira](https://jira.hyperledger.org/secure/RapidBoard.jspa)
 in project IS (note that regular Indy tickets are in the INDY project instead...). Also, make sure to join
-us on [Hyperledger's Rocket.Chat](https://chat.hyperledger.org/) at #indy-sdk to discuss. You will need a Linux Foundation login to get access to these channels
+us on [Hyperledger's Rocket.Chat](https://chat.hyperledger.org/) at #indy-sdk to discuss. You will need a Linux Foundation login to get access to these channels.
 
 ## Understanding Hyperledger Indy
 
